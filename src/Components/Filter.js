@@ -43,11 +43,10 @@ function Filter() {
   {
     // setClicked(!clicked)
     // console.log('fields',fields)
-    const con=[{ id:null,operator:null,value: null }];
-    con.pop();
-    fields.forEach(field=>con.push(field))
+    const con=[];
+    fields.forEach(field=>{con.push(field)})
     console.log(con)
-    ( <Child con={con}/>)
+    // ( <Child con={con}/>)
   }
   
   return (
