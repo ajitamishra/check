@@ -18,29 +18,47 @@ function Child(props) {
           {
               if(doc.operator==="GTE")
               {
-                  if(item.followers>=Number(doc.filter)&& val)
+                  if(item.followers>=Number(doc.value)&& val)
                   val=true;
                   else
                   val=false;
               }   
               else if(doc.operator==="LTE")
               {
-                if(item.followers<=Number(doc.filter) && val)
+                if(item.followers<=Number(doc.value) && val)
                   val=true;
                   else
                   val=false;
             }
           }
-          if(doc.id==="location")
+          else if(doc.id==="following")
           {
-              if(item.location.includes(doc.filter) && val)
+              if(doc.operator==="GTE")
+              {
+                  if(item.following>=Number(doc.value)&& val)
+                  val=true;
+                  else
+                  val=false;
+              }   
+              else if(doc.operator==="LTE")
+              {
+                if(item.followers<=Number(doc.value) && val)
+                  val=true;
+                  else
+                  val=false;
+            }
+          }
+          
+          else if(doc.id==="location")
+          {
+              if(item.location.includes(doc.value) && val)
               val=true;
               else
               val=false;
           }
-          if(doc.id==="verified")
+          else if(doc.id==="verified")
           {
-              if(item.verified===(doc.filter==="verified"? true:false) && val)
+              if(item.verified===(doc.value==="verified"? true:false) && val)
               {
               val=true;
             
@@ -54,7 +72,7 @@ function Child(props) {
         res.push(item)
         return res;
     })
-    console.log(props.con.length,props.con.id)
+    
 //    console.log("Inside child",props.con,"res",res)
 
     return (

@@ -45,8 +45,9 @@ function Filter() {
     // console.log('fields',fields)
     const con=[];
     fields.forEach(field=>{con.push(field)})
-    console.log(con)
-    // ( <Child con={con}/>)
+    console.log("con",con)
+    // setClicked(true)
+    return ( <Child con={con}/>)
   }
   
   return (
@@ -94,7 +95,7 @@ function Filter() {
             <br></br><br></br>
             <button onClick={handleSearch}>Search</button>
             
-            {/* {clicked? "":<Child con={fields}/>} */}
+            {handleSearch()}
           
     </div>
     
